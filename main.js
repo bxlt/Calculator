@@ -1,5 +1,6 @@
 let first = 0;
 let second = 0;
+// add = 1, subtract=2, divide=3, multiply=4
 let currOpt = 0;
 
 function roundToTwo(num) {
