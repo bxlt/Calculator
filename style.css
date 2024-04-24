@@ -7,20 +7,34 @@ body{
 
 #calc{
     width: 320px;
-    height: 264px;
+    height: 270px;
     border-radius: 5%;
     background-color: #d5e2e8;
 
 }
 
+.disRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#clr{
+    margin: 3px;
+    margin-left: 5px;
+}
+
 #display{
+    display: inline-block;
     box-sizing: border-box;
-    width: 320px;
+    width: 200px;
     height: 50px;
     text-align: end;
     font-size: 30px;
     padding-right: 20px;
     padding-top: 5px;
+   
 }
 
 .btn{
