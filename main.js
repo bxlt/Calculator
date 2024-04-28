@@ -70,7 +70,7 @@ function addNum(num){
     if(!dot){
         currValue = currValue*10+num
     } else{
-        let currDigit = countDecimal(num);
+        let currDigit = countDecimal(num)-1;
         currValue = currValue + num/(10**currDigit)
     }
 }
@@ -89,7 +89,7 @@ function initEq(){
             first = currValue
             currValue=0;
             second = 0;
-            
+            dot=false;
         }
     })
 }
@@ -109,8 +109,14 @@ function init(){
             currOpt=i;
             first = currValue;
             currValue=0;
+            dot=false;
         })
     }
+
+    //dot function
+    document.querySelector('#dot').addEventListener('click',()=>{
+        dot=true;
+    })
 
     initEq()
 }
