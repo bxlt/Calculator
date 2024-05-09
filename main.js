@@ -3,8 +3,10 @@ let second = 0;
 // add = 1, subtract=2, divide=3, multiply=4
 let currOpt = 0;
 let currValue = 0;
+let prevValue = 0;
 let dot = false;
 let disWindow = document.querySelector('#display');
+let isPrev = false;
 
 function roundToTwo(num) {
     return +(Math.round(num + "e+2")  + "e-2");
@@ -86,9 +88,9 @@ function initEq(){
             second = currValue;
             currValue = operate(first, second, currOpt);
             updateDis(currValue);
-            first = currValue
+            prevValue = currValue
             currValue=0;
-            second = 0;
+            first=0;
             dot=false;
         }
     })
@@ -106,10 +108,18 @@ function init(){
     let opts = ['add','sub','div','multi']
     for(let i=1;i<5;i++){
         document.querySelector('#' + opts[i-1]).addEventListener('click',()=>{
-            currOpt=i;
-            first = currValue;
+            //console.log(opts[i-1])
+            //console.log('curr opt',currOpt)
+            if(currOpt==0){
+                first = currValue;    
+            }else{
+                first = operate(first, currValue, currOpt);
+                //console.log(first)
+                updateDis(first);
+            }
             currValue=0;
             dot=false;
+            currOpt=i;
         })
     }
 
